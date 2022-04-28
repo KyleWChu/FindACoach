@@ -8,8 +8,6 @@ export default {
       hourlyRate: data.rate,
       areas: data.areas
     };
-    console.log("HELLO");
-    console.log(coachData.id);
     context.commit('registerCoach', coachData);
   }
 };
