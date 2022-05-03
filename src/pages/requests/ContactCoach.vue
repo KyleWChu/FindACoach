@@ -30,7 +30,7 @@ export default {
     submitForm() {
       this.formIsValid = true;
       if (
-        this.eamil === '' ||
+        this.email === '' ||
         !this.email.includes('@') ||
         this.message === ''
       ) {
