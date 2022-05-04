@@ -29,8 +29,13 @@ export default {
       id: userId,
     });
   },
-  async loadCoaches(context) {
+  async loadCoaches(context, payload) {
     //252 Fetching Coaches
+    if (!payload.forceRefresh && !context.getters.shouldUpdate) {
+      return; //256
+    }
+
+    //257 break this json to see transition
     const response = await fetch(
       `https://coach-project-f3806-default-rtdb.firebaseio.com/coaches.json`
     );
@@ -56,5 +61,6 @@ export default {
     }
 
     context.commit('setCoaches', coaches);
+    context.commit('setFetchTimestamp');
   },
 };
